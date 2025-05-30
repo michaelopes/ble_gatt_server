@@ -182,7 +182,7 @@ await _bleGattServer.notifyCharacteristic(device, gattCharacteristic, Uint8List.
 Events are handled by the `handleEvents()` method, to which you can add your custom code.
 ```dart
 _bleGattServer.handleEvents(
-      onAdvertiseStartFailure: (errorCode) { }, // 
+      onAdvertiseStartFailure: (errorCode) { },
       onAdvertiseStartSuccess: (settingsInEffect) { },
       onConnectionStateChange: (device, status, newState) { },
       onCharacteristicReadRequest: (device, requestId, offset, characteristic) async { },
