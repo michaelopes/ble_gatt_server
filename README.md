@@ -180,6 +180,11 @@ await _bleGattServer.notifyCharacteristic(device, gattCharacteristic, Uint8List.
 
 ### Event handling
 Events are handled by the `handleEvents()` method, to which you can add your custom code.
+
+All read and write requests **have to be** handled, if you want the GATT server to function correctly.
+There is no internal state of the characteristics and descriptors, so you are in charge of handling 
+writes, storing the written data and providing the data back when a read is requested. Have a look
+at the example for this, a basic Map<String, Uint8List> does the trick.
 ```dart
 _bleGattServer.handleEvents(
       onAdvertiseStartFailure: (errorCode) { },
@@ -193,6 +198,14 @@ _bleGattServer.handleEvents(
       onNotificationSent: (device, status) { },
       onMtuChanged: (device, mtu) { },
     );
+```
+
+### Responding to requests
+As previously described, you need to handle write and read requests yourself by sending a response back.
+When a value is read, you send the value that the client will receive by calling the following method.
+The value can also be null, e.g. when acknowledging a write request. 
+```dart
+await _bleGattServer.sendResponse(device, requestId, BleGattServer.GATT_SUCCESS, offset, Uint8List.fromList([0x00]));
 ```
 
 ### Constants
