@@ -33,6 +33,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> bleGattServer() async {
 
+    await Permission.bluetooth.request();
     await Permission.bluetoothConnect.request();
     await Permission.bluetoothAdvertise.request();
 
