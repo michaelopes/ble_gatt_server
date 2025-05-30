@@ -288,7 +288,7 @@ class BleGattServer {
     @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
     fun stopServer() {
         if (gattServer == null) throw BleGattServerException.ServerNotRunningException()
-        gattServer?.close();
+        gattServer?.close()
     }
 
     @RequiresPermission(Manifest.permission.BLUETOOTH_CONNECT)
@@ -360,12 +360,12 @@ class BleGattServer {
             gattService = BluetoothGattService(uuid, serviceType)
         }
 
-        public fun addCharacteristic(gattCharacteristic: GattCharacteristic) {
+        fun addCharacteristic(gattCharacteristic: GattCharacteristic) {
             gattService.addCharacteristic(gattCharacteristic.gattCharacteristic)
             gattCharacteristics.add(gattCharacteristic)
         }
 
-        public fun addService(gattService: GattService) {
+        fun addService(gattService: GattService) {
             this.gattService.addService(BluetoothGattService(gattService.uuid, gattService.type))
         }
 
