@@ -1,7 +1,9 @@
 name: ble_gatt_server
 description: "A BLE GATT Server implementation"
 version: 0.1.0
-homepage:
+homepage: https://github.com/blitzdose/ble_gatt_server
+repository: https://github.com/blitzdose/ble_gatt_server
+issue_tracker: https://github.com/blitzdose/ble_gatt_server/issues
 
 environment:
   sdk: ^3.7.2
