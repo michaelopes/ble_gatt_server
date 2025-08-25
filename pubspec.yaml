@@ -6,7 +6,7 @@ repository: https://github.com/blitzdose/ble_gatt_server
 issue_tracker: https://github.com/blitzdose/ble_gatt_server/issues
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.5.4
   flutter: '>=3.3.0'
 
 dependencies:
